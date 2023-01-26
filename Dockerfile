@@ -14,6 +14,7 @@ RUN apt update && apt install -y \
   wget \
   jq \
   python \
+  rename \
   unzip
 
 ENV SONAR_SCANNER_VERSION 4.2.0.1873
