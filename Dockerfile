@@ -1,12 +1,10 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 MAINTAINER Serfim TIC
 
 # Base NPM
 RUN apt update && apt install -y \
   locales \
-  build-essential \
-  gcc-4.8 \
-  g++-4.8 \
+  build-essential
   git \
   rpm \
   openjdk-8-jdk \
