@@ -19,8 +19,9 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build the Docker image
-      run: |
-        docker build . --file Dockerfile --tag serfimtic/docker-nodelts-sonar-scanner:latest
-        docker run serfimtic/docker-nodelts-sonar-scanner:latest
-        docker push serfimtic/docker-nodelts-sonar-scanner:latest
+    
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        push: true
+        tags: serfimtic/docker-nodelts-sonar-scanner:latest
