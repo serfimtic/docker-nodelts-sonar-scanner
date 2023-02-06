@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: hub.docker.com
+        username: ${{ github.actor }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build the Docker image
+      run: |
+        docker build . --file Dockerfile --tag serfimtic/docker-nodelts-sonar-scanner:latest
+        docker run serfimtic/docker-nodelts-sonar-scanner:latest
+        docker push serfimtic/docker-nodelts-sonar-scanner:latest
