@@ -4,7 +4,7 @@ MAINTAINER Serfim TIC
 # Base NPM
 RUN apt update && apt install -y \
   locales \
-  build-essential
+  build-essential \
   git \
   rpm \
   openjdk-8-jdk \
