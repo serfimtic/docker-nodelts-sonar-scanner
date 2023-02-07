@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 ENV SONAR_SCANNER_VERSION 4.2.0.1873
 
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
-  && apt-get install -y nodejs
+  && apt-get install -y nodejs gcc g++ make
 
 RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip && \
     unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip && \
