@@ -1,6 +1,9 @@
 FROM ubuntu:20.04
 MAINTAINER Serfim TIC
 
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Base NPM
 RUN apt-get update && apt-get install -y \
   locales \
